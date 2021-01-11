@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.ekosutrisno
+testFramework: junit
+sourceLanguage: java
+buildTool: maven
+features: [app-name, data, data-jpa, http-client, java, java-application, jdbc-hikari, junit, logback, maven, netty-server, openapi, postgres, readme, shade, testcontainers, yaml]
