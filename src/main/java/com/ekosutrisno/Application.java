@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.info.*;
         info = @Info(
                 title = "API V2",
                 version = "0.0",
-                description = "My API RnD",
+                description = "Development",
                 license = @License(name = "Apache 2.0", url = "https://foo.bar"),
                 contact = @Contact(url = "", name = "Eko Sutrisno", email = "ekosutrisno801@gmail.com")
         )

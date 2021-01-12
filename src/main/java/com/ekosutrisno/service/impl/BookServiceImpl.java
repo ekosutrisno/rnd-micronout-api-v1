@@ -7,6 +7,7 @@ import com.ekosutrisno.service.BookService;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -29,8 +30,12 @@ public class BookServiceImpl implements BookService {
     public Book addBook(Book book) {
         Book bookToSave = new Book();
         bookToSave.setBookId(UUID.randomUUID().toString());
+        bookToSave.setEdition(book.getEdition());
+        bookToSave.setAuthor(book.getAuthor());
+        bookToSave.setPublisher(book.getPublisher());
+        bookToSave.setPublishedAt(new Date());
 
         return bookRepository
-                .save(book);
+                .save(bookToSave);
     }
 }
