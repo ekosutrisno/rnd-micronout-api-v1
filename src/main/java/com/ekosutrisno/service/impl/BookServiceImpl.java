@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.transaction.Transactional;
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -37,5 +38,36 @@ public class BookServiceImpl implements BookService {
 
         return bookRepository
                 .save(bookToSave);
+    }
+
+    @Override
+    public Book editBook(String bookId, Book book) {
+        Optional<Book> optionalBook = bookRepository
+                .findById(bookId);
+
+        if (optionalBook.isPresent()) {
+            Book bookToEdit = optionalBook.get();
+
+            bookToEdit.setEdition(book.getEdition());
+
+            bookRepository.update(bookToEdit);
+        }
+
+        return null;
+    }
+
+    @Override
+    public Boolean deleteBook(String bookId) {
+
+        Optional<Book> optionalBook = bookRepository
+                .findById(bookId);
+
+        if (optionalBook.isPresent()) {
+            bookRepository.deleteById(bookId);
+            return Boolean.TRUE;
+        }
+
+        return Boolean.FALSE;
+
     }
 }

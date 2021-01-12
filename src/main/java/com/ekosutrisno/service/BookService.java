@@ -10,4 +10,8 @@ public interface BookService {
     Iterable<Book> getAllBook();
 
     Book addBook(Book book);
+
+    Book editBook(String bookId, Book book);
+
+    Boolean deleteBook(String bookId);
 }
